@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: rentify
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  pool: 5
+
+development:
+  <<: *default
+  database: rentify-dev
+
+test:
+  <<: *default
+  database: rentify-test
+
+production:
+  <<: *default
+  database: rentify-prod
