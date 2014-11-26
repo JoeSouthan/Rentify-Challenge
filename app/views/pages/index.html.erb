@@ -1,0 +1,9 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1><%= t("views.index.welcome_h1") %></h1>
+    <p><%= t("views.index.welcome_user", user: "A, User") %></p>
+    <p>
+      <%= link_to t("nav.manage_portfolio"), {controller: "properties", action: "index"}, {class: "btn btn-primary btn-lg"} %>
+    </p>
+  </div>
+</div>

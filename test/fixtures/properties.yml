@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  postcode: MyString
+  description: MyText
+  current_rent: 1
+  initial_cost: 1
+
+two:
+  postcode: MyString
+  description: MyText
+  current_rent: 1
+  initial_cost: 1

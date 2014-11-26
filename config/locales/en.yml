@@ -20,4 +20,41 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      property: 
+        one: "Property"
+        other: "Properties"
+    attributes:
+      property:
+        postcode: "Post Code"
+        description: "Description"
+        current_rent: "Current Rent"
+        initial_cost: "Initial Purchase Value"
+        telephone: "Telephone Number"
+        email: "Email Address"
+        created_at: "Created At"
+        updated_at: "Updated At"
+
+  views:
+    index: 
+      welcome_h1: "Welcome to the Rentify Challenge!"
+      welcome_user: "Welcome, %{user}!"
+    property: 
+      index: 
+        listing_properties: "Listing Properties"
+      new:
+        new_property: "Add a New Property"
+      edit:
+        edit_property: "Editing Property"
+      show: 
+        show_property: "Showing Property"
+
+  nav:
+    welcome: "Welcome %{user}!"
+    settings: "Settings"
+    search: "Search..."
+    manage_portfolio: "Manage your Portfolio"
+    edit: "Edit"
+    destroy: "Delete"
+    new: "New %{item}"

@@ -1,0 +1,54 @@
+<div class="row">
+
+  <%= render 'sidebar' %>
+
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="button-inline"><%= t("views.property.index.listing_properties") %></h1>
+    <%= link_to t("nav.new", item: Property.model_name.human), new_property_path, {class: "btn btn-primary button-inline"} %>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="property-image"><%= Property.human_attribute_name("image") %></th>
+            <th class="description"><%= Property.human_attribute_name("description") %></th>
+            <th><%= Property.human_attribute_name("initial_cost") %></th>
+            <th><%= Property.human_attribute_name("current_rent") %></th>
+            <th><%= Property.human_attribute_name("yield") %></th>
+            <th colspan="1" class="actions-col"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @properties.each do |property| %>
+          <% property_yield = (property.current_rent*12)/property.initial_cost * 100 || 0 %>
+            <tr>
+              <td class="property-image">
+                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9IjcwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTQweDE0MDwvdGV4dD48L2c+PC9zdmc+" alt="" width="140px" height="140px" class="img-thumbnail">
+              </td>
+              <td class="description">
+                <p class="property-description"><%= link_to property.description, property %></p>
+                <small><%= property.postcode %></small>
+              </td>
+              <td>
+                <p class="currency"><%= property.initial_cost.format %></p>
+              </td>
+              <td>
+                <p class="currency"><%= property.current_rent.format %></p> 
+                <p class="currency muted">(<%= property.current_rent * 12 %>) p/a</p>
+              </td>
+              <td>
+                <p class="yield"><%= property_yield.round(2) %> <span class="percentage">%</span></p>
+              </td>
+              <td><%= link_to t("nav.edit"), edit_property_path(property), {class: "btn btn-warning btn-lg"} %>
+                  <%= link_to t("nav.destroy"), property, method: :delete, class: "btn btn-danger btn-lg", data: { confirm: 'Are you sure?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <br>
+
+  </div>
+
+</div>
