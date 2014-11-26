@@ -16,13 +16,6 @@ ActiveRecord::Schema.define(version: 20141126170258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "landlords", force: true do |t|
-    t.string   "email"
-    t.string   "phone"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "properties", force: true do |t|
     t.string   "postcode"
     t.text     "description"
@@ -34,13 +27,6 @@ ActiveRecord::Schema.define(version: 20141126170258) do
     t.datetime "updated_at"
     t.string   "email"
     t.string   "telephone"
-  end
-
-  create_table "tenants", force: true do |t|
-    t.string   "email"
-    t.string   "phone"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end
